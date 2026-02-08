@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" fill="none">
+  <rect width="160" height="40" rx="8" fill="#0f1724"/>
+  <g transform="translate(10,6)">
+    <circle cx="12" cy="12" r="10" fill="#7c3aed" />
+    <path d="M6 12c0-3.313 2.687-6 6-6v12c-3.313 0-6-2.687-6-6z" fill="#06b6d4"/>
+    <text x="36" y="18" fill="white" font-family="Inter, sans-serif" font-size="14" font-weight="700">JobHub</text>
+  </g>
+</svg>
