@@ -17,7 +17,6 @@ app.use(cors({
         'http://localhost:5173',
         'http://localhost:3000',
         process.env.FRONTEND_URL,
-        'https://job-hub-full-stack-job-portal-frontend-ogsh79ugw.vercel.app',
         'https://job-hub-full-stack-job-portal-front.vercel.app'
     ].filter(Boolean),
     credentials: true,
