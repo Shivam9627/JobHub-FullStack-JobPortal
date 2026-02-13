@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { SignedOut, SignInButton as ClerkSignInButton, useUser } from '@clerk/clerk-react';
 import Layout from '../components/layout/Layout';
 import RoleModal from '../components/RoleModal';
+// api helper wraps axios and respects VITE_API_BASE_URL
+import { jobAPI } from '../services/api';
 
 const LandingPage = () => {
     const navigate = useNavigate();
@@ -21,15 +23,17 @@ const LandingPage = () => {
         }
     }, [isLoaded, user]);
 
-    // Fetch popular jobs from backend
+    // Fetch popular jobs from backend (uses base url from env)
     useEffect(() => {
         const fetchPopularJobs = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/jobs');
-                const jobs = await response.json();
+                // use shared api utility so base URL adapts to environment
+                const response = await jobAPI.getAllJobs();
+                const jobs = response.data;
                 setPopularJobs(jobs.slice(0, 6) || []);
             } catch (error) {
                 console.error('Error fetching jobs:', error);
+                // keep UI from crashing
                 setPopularJobs([]);
             } finally {
                 setLoadingJobs(false);
